@@ -1,0 +1,190 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Benjah Fashion Store</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f7f5f2;
+      color: #222;
+    }
+    header {
+      background: #171717;
+      color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    header h2 { margin: 0; }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 8px;
+    }
+    .hero {
+      text-align: center;
+      padding: 65px 20px;
+      background: #e8d9c7;
+    }
+    .hero h1 { font-size: 42px; margin-bottom: 10px; }
+    .hero p { font-size: 18px; }
+    .button {
+      display: inline-block;
+      padding: 12px 18px;
+      background: #171717;
+      color: white;
+      text-decoration: none;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    main { max-width: 1100px; margin: auto; padding: 20px; }
+    h2.section-title { text-align: center; margin: 35px 0 25px; }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 20px;
+    }
+    .product {
+      background: white;
+      padding-bottom: 18px;
+      border-radius: 9px;
+      overflow: hidden;
+      text-align: center;
+    }
+    .product img { width: 100%; height: 230px; object-fit: cover; }
+    .product p { padding: 0 10px; }
+    .price { font-weight: bold; font-size: 20px; }
+    #cart {
+      background: white;
+      padding: 20px;
+      margin-top: 35px;
+      border-radius: 8px;
+    }
+    footer {
+      background: #171717;
+      color: white;
+      text-align: center;
+      padding: 25px;
+      margin-top: 35px;
+    }
+    @media (max-width: 500px) {
+      .hero h1 { font-size: 32px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h2>BENJAH FASHION</h2>
+  <nav>
+    <a href="#home">Home</a>
+    <a href="#shop">Shop</a>
+    <a href="#cart">Cart (<span id="count">0</span>)</a>
+  </nav>
+</header>
+
+<section class="hero" id="home">
+  <h1>Style Starts Here</h1>
+  <p>Discover clothes, shoes and accessories for your look.</p>
+  <a class="button" href="#shop">Shop Now</a>
+</section>
+
+<main>
+  <h2 class="section-title" id="shop">Our Collection</h2>
+  <div class="products">
+
+    <article class="product">
+      <img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=600&q=80" alt="T-shirt">
+      <h3>Classic T-Shirt</h3>
+      <p class="price">KSh 1,200</p>
+      <p>Everyday comfort and style.</p>
+      <button class="button" onclick="add('Classic T-Shirt',1200)">Add to Cart</button>
+    </article>
+
+    <article class="product">
+      <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80" alt="Sneakers">
+      <h3>Sport Sneakers</h3>
+      <p class="price">KSh 3,500</p>
+      <p>Sporty footwear for every day.</p>
+      <button class="button" onclick="add('Sport Sneakers',3500)">Add to Cart</button>
+    </article>
+
+    <article class="product">
+      <img src="https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=600&q=80" alt="Handbag">
+      <h3>Fashion Handbag</h3>
+      <p class="price">KSh 2,500</p>
+      <p>A stylish finishing touch.</p>
+      <button class="button" onclick="add('Fashion Handbag',2500)">Add to Cart</button>
+    </article>
+
+    <article class="product">
+      <img src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=600&q=80" alt="Jacket">
+      <h3>Casual Jacket</h3>
+      <p class="price">KSh 4,000</p>
+      <p>A versatile layer for your outfit.</p>
+      <button class="button" onclick="add('Casual Jacket',4000)">Add to Cart</button>
+    </article>
+
+  </div>
+
+  <section id="cart">
+    <h2>Your Cart</h2>
+    <ul id="items"><li>Your cart is empty.</li></ul>
+    <h3>Total: KSh <span id="total">0</span></h3>
+    <button class="button" onclick="clearCart()">Clear Cart</button>
+    <p><small>Sample store: checkout and online payments are not connected yet.</small></p>
+  </section>
+</main>
+
+<footer>
+  <h3>Benjah Fashion Store</h3>
+  <p>Fashion for everyone, everywhere.</p>
+  <p>© 2026 Benjah Fashion</p>
+</footer>
+
+<script>
+  let cart = [];
+
+  function add(name, price) {
+    cart.push({name, price});
+    render();
+  }
+
+  function render() {
+    document.getElementById('count').textContent = cart.length;
+    document.getElementById('total').textContent =
+      cart.reduce((sum, item) => sum + item.price, 0).toLocaleString();
+
+    const list = document.getElementById('items');
+    list.innerHTML = '';
+
+    if (cart.length === 0) {
+      list.innerHTML = '<li>Your cart is empty.</li>';
+      return;
+    }
+
+    cart.forEach(item => {
+      const li = document.createElement('li');
+      li.textContent = item.name + ' — KSh ' + item.price.toLocaleString();
+      list.appendChild(li);
+    });
+  }
+
+  function clearCart() {
+    cart = [];
+    render();
+  }
+</script>
+
+</body>
+  </html>
+        
