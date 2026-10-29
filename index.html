@@ -3,176 +3,314 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="google-site-verification" content="XSIs1GBycsa1upImMk_vvNLJBPndjjXXtV0F3Um0Pp8" />
-  <title>Benjah Fashion Store</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="google-site-verification" content="XSIs1GBycsa1upImMk_vvNLJBPndjjXXtV0F3Um0Pp8">
+
+  <meta name="theme-color" content="#0b0b0b">
+  <meta name="description" content="Shop fashion at Benjah Fashion Store. Discover stylish clothing, sneakers, handbags and jackets.">
+
+  <title>Benjah Fashion Store | Style & Elegance</title>
 
   <style>
-
-  /* BENJAH FASHION STORE — LUXURY BLACK & GOLD */
-body {
-  background: #0b0b0b;
-  color: #f5f5f5;
-  font-family: Arial, sans-serif;
-}
-
-header, .header {
-  background: #111111;
-  color: #d4af37;
-  border-bottom: 2px solid #d4af37;
-}
-
-h1, h2, h3 {
-  color: #d4af37;
-}
-
-.product, .product-card, .cart {
-  background: #181818;
-  color: #ffffff;
-  border: 1px solid #3a3020;
-  border-radius: 12px;
-  padding: 12px;
-}
-
-button {
-  background: #d4af37;
-  color: #111111;
-  border: none;
-  border-radius: 8px;
-  padding: 12px 16px;
-  font-weight: bold;
-  cursor: pointer;
-}
-
-button:hover {
-  background: #f0d675;
-}
-
-.price {
-  color: #e6c65c;
-  font-weight: bold;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-}
     * {
       box-sizing: border-box;
     }
 
+    :root {
+      --black: #0b0b0b;
+      --panel: #171717;
+      --gold: #d4af37;
+      --light-gold: #f3d978;
+      --white: #f8f6f0;
+      --muted: #c4c0b5;
+      --border: #393020;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #f5f5f5;
-      color: #222;
+      background: var(--black);
+      color: var(--white);
+      font-family: Arial, Helvetica, sans-serif;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
     }
 
     header {
-      background: #111;
-      color: white;
+      padding: 28px 16px;
       text-align: center;
-      padding: 28px 15px;
+      background: linear-gradient(145deg, #171717, #050505);
+      border-bottom: 2px solid var(--gold);
     }
 
     header h1 {
-      margin: 0 0 10px;
+      margin: 0;
+      color: var(--gold);
+      font-size: clamp(26px, 7vw, 38px);
+      letter-spacing: 1px;
     }
 
     header p {
-      margin: 0;
+      margin: 6px 0 0;
+      color: var(--muted);
+      font-size: 14px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+
+    .nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 12px;
+      background: #101010;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav a {
+      color: var(--gold);
+      text-decoration: none;
+      padding: 8px 12px;
+      font-size: 14px;
     }
 
     .intro {
       text-align: center;
-      padding: 25px 12px 10px;
+      padding: 34px 18px 22px;
+    }
+
+    .intro h2 {
+      margin: 0 0 8px;
+      color: var(--gold);
+      font-size: clamp(25px, 6vw, 34px);
+    }
+
+    .intro p {
+      margin: 0 auto;
+      max-width: 420px;
+      color: var(--muted);
+    }
+
+    .section-label {
+      color: var(--gold);
+      text-align: center;
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
     }
 
     .products {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
-      max-width: 1100px;
-      padding: 20px;
-      margin: auto;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 12px;
+      max-width: 1000px;
+      padding: 14px;
+      margin: 0 auto;
     }
 
     .product {
-      background: white;
-      border-radius: 10px;
+      min-width: 0;
       overflow: hidden;
-      box-shadow: 0 3px 12px #00000012;
-      padding-bottom: 18px;
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding-bottom: 15px;
       text-align: center;
+      box-shadow: 0 5px 18px #00000035;
     }
 
     .product img {
-      width: 100%;
-      height: 230px;
-      object-fit: cover;
       display: block;
-      background: #eee;
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      background: #222;
     }
 
     .product h3 {
-      margin: 16px 8px 8px;
+      margin: 13px 5px 5px;
+      color: var(--gold);
+      font-size: 16px;
+      line-height: 1.35;
     }
 
     .product p {
-      margin: 8px;
+      margin: 6px 8px;
+      color: var(--muted);
+      font-size: 13px;
     }
 
-    .price {
-      color: #08783e;
+    .product .price {
+      color: var(--light-gold);
+      font-size: 17px;
       font-weight: bold;
-      font-size: 19px;
     }
 
     button {
-      border: none;
-      border-radius: 5px;
-      padding: 12px 16px;
+      min-height: 44px;
+      padding: 11px 13px;
+      border: 0;
+      border-radius: 7px;
+      font-size: 14px;
+      font-weight: bold;
       cursor: pointer;
-      font-size: 15px;
-      margin: 5px;
+      touch-action: manipulation;
+    }
+
+    button:focus-visible,
+    a:focus-visible {
+      outline: 2px solid var(--light-gold);
+      outline-offset: 3px;
     }
 
     .add-button {
-      background: #111;
-      color: white;
+      width: calc(100% - 20px);
+      margin-top: 8px;
+      background: var(--gold);
+      color: #111;
+    }
+
+    .add-button:active,
+    .order-button:active {
+      transform: scale(0.98);
     }
 
     .cart {
-      max-width: 800px;
-      margin: 10px auto 30px;
-      padding: 20px;
-      background: white;
-      border-radius: 10px;
+      max-width: 760px;
+      margin: 25px auto;
+      padding: 22px 16px;
+      background: var(--panel);
+      border: 1px solid var(--gold);
+      border-radius: 12px;
     }
 
     .cart h2 {
       margin-top: 0;
+      color: var(--gold);
+      text-align: center;
     }
 
     #cartItems {
-      line-height: 1.8;
+      color: var(--white);
       overflow-wrap: anywhere;
     }
 
+    #total {
+      color: var(--light-gold);
+      border-top: 1px solid var(--border);
+      padding-top: 12px;
+    }
+
     .order-button {
-      background: #168447;
-      color: white;
+      width: 100%;
+      margin: 8px 0;
+      background: var(--gold);
+      color: #111;
+      font-size: 15px;
     }
 
     .clear-button {
-      background: #ddd;
-      color: #222;
+      width: 100%;
+      margin-top: 6px;
+      background: #292929;
+      color: var(--white);
+      border: 1px solid #555;
+    }
+
+    .payment-info {
+      margin-top: 20px;
+      padding: 16px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      background: #101010;
+    }
+
+    .payment-info h3 {
+      margin-top: 0;
+      color: var(--gold);
+      font-size: 18px;
+    }
+
+    .payment-info p {
+      margin: 10px 0;
+      color: var(--muted);
+      font-size: 14px;
+      overflow-wrap: anywhere;
+    }
+
+    .payment-info strong {
+      color: var(--light-gold);
     }
 
     footer {
-      background: #111;
-      color: white;
+      padding: 24px 15px;
       text-align: center;
-      padding: 20px;
+      background: #050505;
+      border-top: 1px solid var(--gold);
+    }
+
+    footer p {
+      margin: 5px;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    footer strong {
+      color: var(--gold);
+    }
+
+    @media (max-width: 360px) {
+      .products {
+        gap: 8px;
+        padding: 8px;
+      }
+
+      .product img {
+        height: 150px;
+      }
+
+      .product h3 {
+        font-size: 14px;
+      }
+
+      .product .price {
+        font-size: 15px;
+      }
+
+      .add-button {
+        font-size: 12px;
+        padding: 10px 5px;
+      }
+    }
+
+    @media (min-width: 650px) {
+      .products {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 18px;
+        padding: 20px;
+      }
+
+      .product img {
+        height: 230px;
+      }
+
+      .cart {
+        padding: 28px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
     }
   </style>
 </head>
@@ -183,97 +321,110 @@ img {
     <p>Style • Quality • Confidence</p>
   </header>
 
+  <nav class="nav" aria-label="Main navigation">
+    <a href="#products">Shop Products</a>
+    <a href="#cart">Your Cart</a>
+    <a href="#payment">M-Pesa Payment</a>
+  </nav>
+
   <section class="intro">
-    <h2>Discover Your Style</h2>
-    <p>Shop our latest fashion collection.</p>
+    <p class="section-label">Discover the collection</p>
+    <h2>Style That Speaks</h2>
+    <p>Explore our fashion collection and order conveniently through WhatsApp.</p>
   </section>
 
-  <main class="products">
-    <article class="product">
-      <img
-        src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=80"
-        alt="Classic T-shirt"
-        onerror="this.alt='T-shirt photo unavailable'">
-      <h3>Classic T-Shirt</h3>
-      <p>Comfortable everyday wear.</p>
-      <p class="price">KSh 1,200</p>
-      <button class="add-button"
-        onclick="addToCart('Classic T-Shirt',1200)">
-        Add to Cart
-      </button>
-    </article>
+  <main>
+    <section id="products" class="products" aria-label="Fashion products">
 
-    <article class="product">
-      <img
-        src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80"
-        alt="Sport sneakers"
-        onerror="this.alt='Sneakers photo unavailable'">
-      <h3>Sport Sneakers</h3>
-      <p>Step out in style.</p>
-      <p class="price">KSh 3,500</p>
-      <button class="add-button"
-        onclick="addToCart('Sport Sneakers',3500)">
-        Add to Cart
-      </button>
-    </article>
+      <article class="product">
+        <img
+          src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=700&q=80"
+          alt="Classic T-shirt"
+          onerror="this.alt='T-shirt photo unavailable'">
+        <h3>Classic T-Shirt</h3>
+        <p>Comfortable everyday wear.</p>
+        <p class="price">KSh 1,200</p>
+        <button class="add-button" onclick="addToCart('Classic T-Shirt',1200)">
+          Add to Cart
+        </button>
+      </article>
 
-    <article class="product">
-      <img
-        src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=700&q=80"
-        alt="Fashion handbag"
-        onerror="this.alt='Handbag photo unavailable'">
-      <h3>Fashion Handbag</h3>
-      <p>A stylish everyday accessory.</p>
-      <p class="price">KSh 2,500</p>
-      <button class="add-button"
-        onclick="addToCart('Fashion Handbag',2500)">
-        Add to Cart
-      </button>
-    </article>
+      <article class="product">
+        <img
+          src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=700&q=80"
+          alt="Sport sneakers"
+          onerror="this.alt='Sneakers photo unavailable'">
+        <h3>Sport Sneakers</h3>
+        <p>Step out in style.</p>
+        <p class="price">KSh 3,500</p>
+        <button class="add-button" onclick="addToCart('Sport Sneakers',3500)">
+          Add to Cart
+        </button>
+      </article>
 
-    <article class="product">
-      <img
-        src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=700&q=80"
-        alt="Casual jacket"
-        onerror="this.alt='Jacket photo unavailable'">
-      <h3>Casual Jacket</h3>
-      <p>Look smart on any occasion.</p>
-      <p class="price">KSh 4,000</p>
-      <button class="add-button"
-        onclick="addToCart('Casual Jacket',4000)">
-        Add to Cart
+      <article class="product">
+        <img
+          src="https://images.unsplash.com/photo-1584917865442-de89df76afd3?auto=format&fit=crop&w=700&q=80"
+          alt="Fashion handbag"
+          onerror="this.alt='Handbag photo unavailable'">
+        <h3>Fashion Handbag</h3>
+        <p>A stylish everyday accessory.</p>
+        <p class="price">KSh 2,500</p>
+        <button class="add-button" onclick="addToCart('Fashion Handbag',2500)">
+          Add to Cart
+        </button>
+      </article>
+
+      <article class="product">
+        <img
+          src="https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=700&q=80"
+          alt="Casual jacket"
+          onerror="this.alt='Jacket photo unavailable'">
+        <h3>Casual Jacket</h3>
+        <p>Look smart on any occasion.</p>
+        <p class="price">KSh 4,000</p>
+        <button class="add-button" onclick="addToCart('Casual Jacket',4000)">
+          Add to Cart
+        </button>
+      </article>
+
+    </section>
+
+    <section id="cart" class="cart">
+      <h2>Your Shopping Cart</h2>
+
+      <div id="cartItems" aria-live="polite">
+        Your cart is empty.
+      </div>
+
+      <h3 id="total">Total: KSh 0</h3>
+
+      <button class="order-button" onclick="checkoutWhatsApp()">
+        Order via WhatsApp
       </button>
-    </article>
+
+      <div id="payment" class="payment-info">
+        <h3>Pay with M-Pesa Pochi la Biashara</h3>
+
+        <p>1. Open your M-Pesa menu on your phone.</p>
+        <p><strong>Pochi payment number:</strong> 0799732940</p>
+        <p><strong>Business:</strong> Benjah Fashion Store</p>
+        <p>2. Select Pochi la Biashara.</p>
+        <p>3. Choose the option for paying a business, if available.</p>
+        <p>4. Follow the prompts and confirm the payment details.</p>
+        <p>5. Keep your M-Pesa confirmation message and send it to us on WhatsApp.</p>
+        <p><strong>Important:</strong> Confirm the payment recipient before sending money. Never share your M-Pesa PIN.</p>
+      </div>
+
+      <button class="clear-button" onclick="clearCart()">
+        Clear Cart
+      </button>
+    </section>
   </main>
 
-  <section class="cart">
-    <h2>Your Shopping Cart</h2>
-    <div id="cartItems">Your cart is empty.</div>
-    <h3 id="total">Total: KSh 0</h3>
-
-    <button class="order-button" onclick="checkoutWhatsApp()">
-      Order via WhatsApp
-    </button>
-    
-<div class="payment-info">
-  <h3>Pay with M-Pesa Pochi la Biashara</h3>
-  <p>1. Open your M-Pesa menu on your phone.</p>
-<p><strong>Pochi payment number:</strong> 0799732940</p>
-<p>Business: Benjah Fashion Store</p>
-  <p>2. Select Pochi la Biashara.</p>
-  <p>3. Choose the option for paying a business, if available.</p>
-  <p>4. Follow the prompts and confirm the payment details.</p>
-  <p>5. Keep your M-Pesa confirmation message and send it to us on WhatsApp.</p>
-  <p><strong>Important:</strong> Confirm the payment recipient before sending money.</p>
-</div>
-    
-
-    <button class="clear-button" onclick="clearCart()">
-      Clear Cart
-    </button>
-  </section>
-
   <footer>
+    <p><strong>Benjah Fashion Store</strong></p>
+    <p>Style • Quality • Confidence</p>
     <p>© 2026 Benjah Fashion Store</p>
     <p>Thank you for shopping with us!</p>
   </footer>
@@ -297,9 +448,11 @@ img {
 
         cart.forEach(function(item, index) {
           const line = document.createElement('p');
+
           line.textContent =
             (index + 1) + '. ' + item.name +
             ' — KSh ' + item.price.toLocaleString('en-KE');
+
           items.appendChild(line);
         });
       }
@@ -335,11 +488,8 @@ img {
           item.price.toLocaleString('en-KE') + '\n';
       });
 
-      message += '\nTotal: KSh ' +
-        total.toLocaleString('en-KE');
-
-      message +=
-        '\n\nPlease confirm availability and delivery charges.';
+      message += '\nTotal: KSh ' + total.toLocaleString('en-KE');
+      message += '\n\nPlease confirm availability and delivery charges.';
 
       const url = 'https://wa.me/254799732940?text=' +
         encodeURIComponent(message);
@@ -348,5 +498,4 @@ img {
     }
   </script>
 </body>
-  </html>
-  
+</html>
